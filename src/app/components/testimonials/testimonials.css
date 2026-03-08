@@ -1,0 +1,36 @@
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.testimonial-card {
+  padding: 30px;
+}
+
+.testimonial-card p {
+  color: #e2e8f0;
+  font-size: 1.05rem;
+  margin-bottom: 22px;
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.author strong {
+  color: white;
+}
+
+.author span {
+  color: #94a3b8;
+}
+
+@media (max-width: 992px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
