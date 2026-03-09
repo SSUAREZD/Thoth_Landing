@@ -15,10 +15,11 @@
 }
 
 .brand {
-  display: flex;
+   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
   font-weight: 700;
+  font-size: 40px;
   color: rgb(255, 255, 255);
 }
 
@@ -32,8 +33,9 @@
 
 .menu {
   display: flex;
-  
-  gap: 28px;
+  font-size: 20px;
+  font-weight: 700;
+  gap: 40px;
 }
 
 .menu a {
