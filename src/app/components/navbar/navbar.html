@@ -1,18 +1,20 @@
 <header class="navbar-wrap">
   <div class="container">
-    <nav class="navbar glass-card">
+    <nav class="navbar">
       <div class="brand">
-         <img src="/logo.png" alt="Logo Toth" class="logo">
-        <span>Toth</span>
+         <img src="/logo.png" alt="Logo Thoth" class="logo">
+        <span>Thoth</span>
       </div>
 
       <div class="menu">
-        <a href="#features">Producto</a>
+        <a href="#features">¿Que hacemos?</a>
         <a href="#testimonials">Pruebas</a>
-        <a href="#contact">Contacto</a>
+        <a href="#contact">Contáctanos</a>
       </div>
 
-      <a href="#contact" class="nav-cta">Contáctanos</a>
+      <div class="nav-actions">
+        <a [href]="appUrl" class="nav-cta">Iniciar sesión</a>
+      </div>
     </nav>
   </div>
 </header>

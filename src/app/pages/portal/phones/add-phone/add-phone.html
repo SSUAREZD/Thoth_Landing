@@ -1,0 +1,41 @@
+<div class="form-page">
+  <a routerLink="/app/phones" class="back-link">← Teléfonos</a>
+  <h2>Registrar Teléfono</h2>
+
+  <form (ngSubmit)="onSubmit()" class="form-card">
+    <div class="field">
+      <label>Nombre del dispositivo</label>
+      <input type="text" [(ngModel)]="name" name="name" placeholder="ej. iPhone 15 Pro" class="form-input" />
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Largo (mm)</label>
+        <input type="number" step="0.01" [(ngModel)]="length" name="length" placeholder="ej. 160.7" class="form-input" />
+      </div>
+      <div class="field">
+        <label>Ancho (mm)</label>
+        <input type="number" step="0.01" [(ngModel)]="width" name="width" placeholder="ej. 77.6" class="form-input" />
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Distancia giroscopio a cámara (mm)</label>
+        <input type="number" step="0.01" [(ngModel)]="gyroCamera" name="gyroCamera" placeholder="ej. 20.5" class="form-input" />
+      </div>
+      <div class="field">
+        <label>Distancia giroscopio abajo (mm)</label>
+        <input type="number" step="0.01" [(ngModel)]="gyroBelow" name="gyroBelow" placeholder="ej. 10.2" class="form-input" />
+      </div>
+    </div>
+
+    @if (errorMessage()) {
+      <p class="error-msg">{{ errorMessage() }}</p>
+    }
+
+    <button type="submit" class="btn-primary" [disabled]="isLoading()">
+      {{ isLoading() ? 'Registrando...' : 'Registrar teléfono' }}
+    </button>
+  </form>
+</div>

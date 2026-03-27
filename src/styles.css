@@ -154,6 +154,42 @@ button {
   -webkit-text-fill-color: transparent;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f8fafc;
+    --card: rgba(0, 0, 0, 0.04);
+    --card-border: rgba(0, 0, 0, 0.1);
+    --text: #0f172a;
+    --muted: #475569;
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  }
+
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(124, 58, 237, 0.07), transparent 30%),
+      radial-gradient(circle at top right, rgba(37, 99, 235, 0.07), transparent 30%),
+      linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    color: var(--text);
+  }
+
+  .section-label {
+    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.04);
+    color: #334155;
+  }
+
+  .btn-secondary {
+    background: rgba(0, 0, 0, 0.06);
+    color: #0f172a;
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+
 @media (max-width: 992px) {
   h1 {
     font-size: 3rem;

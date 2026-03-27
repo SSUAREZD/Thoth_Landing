@@ -1,0 +1,32 @@
+<div class="list-page">
+  <div class="page-header">
+    <h2>Mis Líneas</h2>
+    <input type="text" [(ngModel)]="search" placeholder="Buscar..." class="search-input" />
+  </div>
+
+  @if (isLoading()) {
+    <div class="loading">Cargando tus líneas...</div>
+  } @else if (errorMessage()) {
+    <div class="error-box">
+      {{ errorMessage() }}
+      <button (click)="load()">Reintentar</button>
+    </div>
+  } @else if (filtered.length === 0) {
+    <div class="empty-state">
+      <p>No tienes líneas guardadas aún.</p>
+      <a routerLink="/app/catalog">Explorar catálogo →</a>
+    </div>
+  } @else {
+    <div class="items-list">
+      @for (line of filtered; track line.id) {
+        <a [routerLink]="['/app/catalog', line.companyId, line.id]" class="list-item">
+          <div class="item-info">
+            <span class="item-name">{{ line.name }}</span>
+            <span class="item-tag">{{ line.bodyPart }}</span>
+          </div>
+          <span class="item-arrow">→</span>
+        </a>
+      }
+    </div>
+  }
+</div>

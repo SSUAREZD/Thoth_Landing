@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-features',
@@ -6,4 +6,14 @@ import { Component } from '@angular/core';
   templateUrl: './features.html',
   styleUrl: './features.css',
 })
-export class Features {}
+export class Features {
+  openCards = signal<Set<number>>(new Set());
+
+  toggle(i: number) {
+    this.openCards.update(prev => {
+      const next = new Set(prev);
+      next.has(i) ? next.delete(i) : next.add(i);
+      return next;
+    });
+  }
+}

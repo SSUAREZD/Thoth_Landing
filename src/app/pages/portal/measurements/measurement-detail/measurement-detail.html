@@ -1,0 +1,54 @@
+<div class="detail-page">
+  <a routerLink="/app/measurements" class="back-link">← Medidas</a>
+
+  @if (isLoading()) {
+    <div class="loading">Cargando medida...</div>
+  } @else if (errorMessage()) {
+    <div class="error-box">{{ errorMessage() }}</div>
+  } @else if (measurement()) {
+    <div class="detail-card">
+      <h2>Detalle de Medida</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Parte del cuerpo</span>
+          <span class="info-value">{{ measurement()!.bodyPart }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Unidad</span>
+          <span class="info-value">{{ measurement()!.units }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Lado</span>
+          <span class="info-value">{{ measurement()!.side }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Longitud del pie</span>
+          <span class="info-value">{{ measurement()!.footLength }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Ancho del pie</span>
+          <span class="info-value">{{ measurement()!.footWidth }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Circunferencia del empeine</span>
+          <span class="info-value">{{ measurement()!.instepGirth }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Circunferencia del metatarso</span>
+          <span class="info-value">{{ measurement()!.ballGirth }}</span>
+        </div>
+      </div>
+
+      @if (measurement()!.sizes && measurement()!.sizes!.length > 0) {
+        <div class="sizes-section">
+          <h4>Tallas recomendadas</h4>
+          <div class="sizes-grid">
+            @for (size of measurement()!.sizes!; track size.id) {
+              <div class="size-chip">{{ size.denomination }}</div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

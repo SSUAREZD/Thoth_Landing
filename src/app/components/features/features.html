@@ -1,38 +1,48 @@
 <section id="features">
   <div class="container">
-    <span class="section-label">Propuesta de valor</span>
-    <h2 class="section-title">Reduce devoluciones y aumenta ventas asegurando que cada cliente compre su talla correcta desde la primera vez</h2>
-    <p class="section-subtitle">
-      Nuestra solución utiliza mediciones corporales reales obtenidas desde el teléfono del usuario para recomendar
-      la talla exacta antes de realizar la compra, disminuyendo errores y costos asociados a devoluciones para los retailers.
-    </p>
-
+    <h2 class="section-title">Descubre como <span class="highlight">Thoth</span> reduce devoluciones y aumenta ventas en
+      <span class="highlight">2 simples pasos</span>
+    </h2>
     <div class="features-grid">
-      <article class="feature-card glass-card">
-        <div class="feature-icon">01</div>
-        <h3>Medición corporal real</h3>
-        <p>
-         Obtenemos medidas corporales del usuario desde su teléfono para recomendar 
-         tallas con mayor precisión que una guía tradicional.
-        </p>
-      </article>
 
-      <article class="feature-card glass-card">
-        <div class="feature-icon">02</div>
-        <h3>Recomendación de talla exacta</h3>
-        <p>
-          Comparamos las medidas del usuario con la información de cada 
-          prenda para sugerir la talla correcta antes de comprar.
-        </p>
-      </article>
+      <button type="button" class="feature-card glass-card" [class.open]="openCards().has(0)" (click)="toggle(0)">
+        <div class="card-header">
+          <div class="feature-icon">01</div>
+          <h3>Medición corporal real</h3>
+          <span class="expand-icon">{{ openCards().has(0) ? '−' : '+' }}</span>
+        </div>
+        <div class="feature-detail">
+          <div class="detail-content">
+            <p>
+              El usuario sostiene su teléfono y nuestra IA usa visión computacional para estimar
+              sus medidas corporales clave en aproximadamente 2 minutos, sin necesidad de cinta
+              métrica ni asistencia externa. Las medidas se almacenan de forma segura y pueden
+              reutilizarse en futuras compras dentro del ecosistema Thoth.
+            </p>
+            <img src="/thoth_holding_phone.png" alt="Thoth midiendo con el teléfono" class="detail-image" />
+          </div>
+        </div>
+      </button>
 
-      <article class="feature-card glass-card">
-        <div class="feature-icon">03</div>
-        <h3>Menos devoluciones, más conversión</h3>
-        <p>
-          Ayudamos a los retailers a reducir costos por devoluciones y a mejorar la experiencia de compra, aumentando la probabilidad de venta.
-        </p>
-      </article>
+      <button type="button" class="feature-card glass-card" [class.open]="openCards().has(1)" (click)="toggle(1)">
+        <div class="card-header">
+          <div class="feature-icon">02</div>
+          <h3>Recomendación de talla exacta</h3>
+          <span class="expand-icon">{{ openCards().has(1) ? '−' : '+' }}</span>
+        </div>
+        <div class="feature-detail">
+          <div class="detail-content">
+            <p>
+              Nuestro algoritmo cruza las medidas reales del usuario con la tabla de tallas
+              específica de cada marca y prenda. El resultado es una única recomendación
+              precisa, no un rango ni una estimación, lo que elimina la duda al comprar y
+              reduce drásticamente las devoluciones por talla incorrecta.
+            </p>
+            <img src="/thoth_trying_shoes.png" alt="Thoth recomendando talla" class="detail-image" />
+          </div>
+        </div>
+      </button>
+
     </div>
   </div>
 </section>

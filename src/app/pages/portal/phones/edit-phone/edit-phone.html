@@ -1,0 +1,45 @@
+<div class="form-page">
+  <a [routerLink]="['/app/phones', phoneId]" class="back-link">← Detalle</a>
+  <h2>Editar Teléfono</h2>
+
+  @if (loadError()) {
+    <div class="error-box">{{ loadError() }}</div>
+  } @else {
+    <form (ngSubmit)="onSubmit()" class="form-card">
+      <div class="field">
+        <label>Nombre del dispositivo</label>
+        <input type="text" [(ngModel)]="name" name="name" class="form-input" />
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Largo (mm)</label>
+          <input type="number" step="0.01" [(ngModel)]="length" name="length" class="form-input" />
+        </div>
+        <div class="field">
+          <label>Ancho (mm)</label>
+          <input type="number" step="0.01" [(ngModel)]="width" name="width" class="form-input" />
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Distancia giroscopio a cámara (mm)</label>
+          <input type="number" step="0.01" [(ngModel)]="gyroCamera" name="gyroCamera" class="form-input" />
+        </div>
+        <div class="field">
+          <label>Distancia giroscopio abajo (mm)</label>
+          <input type="number" step="0.01" [(ngModel)]="gyroBelow" name="gyroBelow" class="form-input" />
+        </div>
+      </div>
+
+      @if (saveError()) {
+        <p class="error-msg">{{ saveError() }}</p>
+      }
+
+      <button type="submit" class="btn-primary" [disabled]="isLoading()">
+        {{ isLoading() ? 'Guardando...' : 'Guardar cambios' }}
+      </button>
+    </form>
+  }
+</div>
