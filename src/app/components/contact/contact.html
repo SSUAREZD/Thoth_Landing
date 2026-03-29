@@ -2,18 +2,31 @@
   <div class="container">
     <div class="contact-box glass-card">
       <div class="contact-copy">
-        <h2>Descubre la talla correcta de tus clientes antes de que compren</h2>
-        <p>
-         Deja de perder el tiempo midiendo tu pie con herramientas tradicionales, utiliza Thoth y ahorrate dolores de cabeza
-        </p>
+        <h2>Deja de perder ventas con herramientas tradicionales, <span class="highlight"> utiliza Thoth </span> y evita devoluciones</h2>
       </div>
 
-      <form class="contact-form">
-        <input type="text" placeholder="Tu nombre" />
-        <input type="email" placeholder="Tu correo" />
-        <textarea rows="5" placeholder="¿Quieres conocer más sobre la solución?"></textarea>
-        <button type="submit" class="btn btn-primary">Solicitar propuesta</button>
-      </form>
+      @if (status() === 'success') {
+        <div class="contact-success">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <p>¡Mensaje enviado! Te contactaremos pronto.</p>
+        </div>
+      } @else {
+        <form class="contact-form" (ngSubmit)="onSubmit()" #f="ngForm">
+          <input type="text" placeholder="Tu nombre" [(ngModel)]="name" name="name" required />
+          <input type="email" placeholder="Tu correo" [(ngModel)]="email" name="email" required />
+          <textarea rows="5" placeholder="¿Quieres conocer más sobre la solución?" [(ngModel)]="message" name="message" required></textarea>
+
+          @if (status() === 'error') {
+            <p class="contact-error">
+              Lo sentimos, no pudimos enviar el email. Puede contactarnos desde los contactos que aparecen abajo.
+            </p>
+          }
+
+          <button type="submit" class="btn btn-primary" [disabled]="status() === 'sending'">
+            {{ status() === 'sending' ? 'Enviando...' : 'Solicitar propuesta' }}
+          </button>
+        </form>
+      }
     </div>
   </div>
 </section>
