@@ -1,13 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <title>Thoth</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="logo.png">
+
 </head>
+
 <body>
   <app-root></app-root>
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es',
+      autoDisplay: false
+    }, 'google_translate_element');
+
+    autoTranslate();
+  }
+
+  function autoTranslate() {
+    const userLang = navigator.language || navigator.userLanguage;
+    const lang = userLang.split('-')[0]; // ej: en-US → en
+
+    const interval = setInterval(() => {
+      const select = document.querySelector('.goog-te-combo');
+
+      if (select) {
+        // si ya está en español, no hacer nada
+        if (lang !== 'es') {
+          select.value = lang;
+          select.dispatchEvent(new Event('change'));
+        }
+
+        clearInterval(interval);
+      }
+    }, 300);
+  }
+  </script>
+
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>

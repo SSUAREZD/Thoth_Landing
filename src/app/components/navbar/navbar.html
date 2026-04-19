@@ -1,8 +1,9 @@
-<header class="navbar-wrap">
+<header class="navbar-wrap"> 
   <div class="container">
     <nav class="navbar">
+
       <div class="brand">
-         <img src="/logo.png" alt="Logo Thoth" class="logo">
+        <img src="/logo.png" alt="Logo Thoth" class="logo">
         <span>Thoth</span>
       </div>
 
@@ -13,9 +14,35 @@
         <a href="#contact">Contáctanos</a>
       </div>
 
+      <!-- DERECHA -->
       <div class="nav-actions">
+
+        <!-- BOTONES IDIOMA -->
+        <div class="lang-switch">
+          <div class="lang-dropdown">
+
+            <button class="lang-current" (click)="toggleLangMenu($event)">
+              🌐 Idioma
+            </button>
+
+            <div class="lang-menu" [class.active]="isLangOpen" (click)="$event.stopPropagation()">
+              <div (click)="changeLang('es')">🇪🇸 Español</div>
+              <div (click)="changeLang('en')">🇺🇸 English</div>
+              <div (click)="changeLang('fr')">🇫🇷 Français</div>
+              <div (click)="changeLang('de')">🇩🇪 Deutsch</div>
+              <div (click)="changeLang('pt')">🇵🇹 Português</div>
+              <div (click)="changeLang('it')">🇮🇹 Italiano</div>
+              <div (click)="changeLang('zh-CN')">🇨🇳 中文</div>
+              <div (click)="changeLang('ja')">🇯🇵 日本語</div>
+            </div>
+
+          </div>
+        </div>
+
         <a [href]="appUrl" class="nav-cta">Ingresa a la app</a>
+
       </div>
+
     </nav>
   </div>
 </header>
