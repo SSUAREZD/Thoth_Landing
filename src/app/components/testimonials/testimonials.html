@@ -1,4 +1,4 @@
-<section id="testimonials">
+<section id="pruebas">
   <div class="container">
     <h2 class="section-title">Nuestra App</h2>
 
@@ -31,6 +31,32 @@
         <p>Resultado final con recomendación de talla.</p>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section id="testimonios">
+  <div class="container">
+    <h2 class="section-title">Testimonios</h2>
+
+    <div class="testimonials-slider">
+      <button class="slider-btn slider-btn-left" type="button" (click)="scrollLeft()" aria-label="Anterior testimonio">
+        ‹
+      </button>
+
+      <div class="testimonials-grid" #slider>
+        <article class="testimonial-card" *ngFor="let testimonial of testimonials">
+          <div class="rating">
+            <span class="star" *ngFor="let i of getRatingArray(testimonial.rating)">★</span>
+          </div>
+          <p class="quote">{{ testimonial.quote }}</p>
+          <p class="author">{{ testimonial.author }}</p>
+        </article>
+      </div>
+
+      <button class="slider-btn slider-btn-right" type="button" (click)="scrollRight()" aria-label="Siguiente testimonio">
+        ›
+      </button>
     </div>
   </div>
 </section>
