@@ -157,37 +157,69 @@ button {
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #ffffff;
-    --bg-soft: #f8fafc;
-    --card: rgba(0, 0, 0, 0.04);
-    --card-border: rgba(0, 0, 0, 0.1);
+    --bg: #eef3fb;
+    --bg-soft: #dde7f6;
+    --card: rgba(235, 242, 252, 0.58);
+    --card-border: rgba(120, 143, 188, 0.32);
     --text: #0f172a;
-    --muted: #475569;
-    --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    --muted: #46556f;
+    --shadow: 0 20px 60px rgba(50, 70, 110, 0.12);
   }
 
   body {
     background:
-      radial-gradient(circle at top left, rgba(124, 58, 237, 0.07), transparent 30%),
-      radial-gradient(circle at top right, rgba(37, 99, 235, 0.07), transparent 30%),
-      linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      radial-gradient(circle at top left, rgba(124, 58, 237, 0.12), transparent 30%),
+      radial-gradient(circle at top right, rgba(37, 99, 235, 0.16), transparent 34%),
+      linear-gradient(180deg, #edf2fb 0%, #dce7f7 100%);
     color: var(--text);
   }
 
   .section-label {
-    border-color: rgba(0, 0, 0, 0.1);
-    background: rgba(0, 0, 0, 0.04);
-    color: #334155;
+    border-color: rgba(120, 143, 188, 0.26);
+    background: rgba(236, 242, 251, 0.7);
+    color: #31425e;
   }
 
   .btn-secondary {
-    background: rgba(0, 0, 0, 0.06);
+    background: rgba(227, 235, 248, 0.72);
     color: #0f172a;
-    border-color: rgba(0, 0, 0, 0.12);
+    border-color: rgba(120, 143, 188, 0.28);
   }
 
   .btn-secondary:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(215, 226, 244, 0.92);
+  }
+
+  .glass-card {
+    background: linear-gradient(180deg, rgba(236, 242, 251, 0.68), rgba(223, 233, 247, 0.62));
+    border-color: rgba(120, 143, 188, 0.22);
+    box-shadow: 0 20px 60px rgba(50, 70, 110, 0.10);
+  }
+
+  .lang-current {
+    background: rgba(230, 237, 248, 0.55);
+    border-color: rgba(120, 143, 188, 0.24);
+    color: #4f6f9f;
+  }
+
+  .lang-current:hover {
+    background: rgba(220, 230, 245, 0.82);
+    color: #0f172a;
+  }
+
+  .lang-menu {
+    background: rgba(232, 239, 249, 0.94);
+    border-color: rgba(120, 143, 188, 0.24);
+    box-shadow: 0 18px 40px rgba(50, 70, 110, 0.16);
+  }
+
+  .lang-menu div {
+    color: #31425e;
+  }
+
+  .lang-menu div:hover {
+    background: rgba(214, 226, 244, 0.78);
+    color: #0f172a;
   }
 }
 

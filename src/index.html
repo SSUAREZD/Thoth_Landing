@@ -25,6 +25,12 @@
 
   function autoTranslate() {
     const userLang = navigator.language || navigator.userLanguage;
+    const savedLang = localStorage.getItem('thothLang');
+    const selectedLang = savedLang === 'en' || savedLang === 'es'
+      ? savedLang
+      : userLang.split('-')[0] === 'en'
+        ? 'en'
+        : 'es';
     const lang = userLang.split('-')[0]; // ej: en-US → en
 
     const interval = setInterval(() => {
@@ -32,8 +38,8 @@
 
       if (select) {
         // si ya está en español, no hacer nada
-        if (lang !== 'es') {
-          select.value = lang;
+        if (selectedLang === 'en') {
+          select.value = 'en';
           select.dispatchEvent(new Event('change'));
         }
 

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -8,26 +8,36 @@ import { environment } from '../../../environments/environment';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
-export class Navbar {
+export class Navbar implements OnInit {
   appUrl = environment.appUrl;
+  currentLang: 'es' | 'en' = 'es';
 
-  isLangOpen = false;
-
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: Event) {
-    if (this.isLangOpen) {
-      this.isLangOpen = false;
+  ngOnInit() {
+    if (typeof window === 'undefined') {
+      return;
     }
+
+    const savedLang = window.localStorage.getItem('thothLang');
+    this.currentLang = savedLang === 'en' ? 'en' : 'es';
   }
 
-  toggleLangMenu(event: Event) {
-    event.stopPropagation();
-    this.isLangOpen = !this.isLangOpen;
-    console.log("toggle:", this.isLangOpen); // debug
+  get languageButtonLabel() {
+    return this.currentLang === 'es' ? 'EN' : 'ES';
   }
 
-  changeLang(lang: string) {
-    this.isLangOpen = false;
+  toggleLanguage() {
+    const targetLang = this.currentLang === 'es' ? 'en' : 'es';
+    this.changeLang(targetLang);
+  }
+
+  private changeLang(lang: 'es' | 'en') {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    this.currentLang = lang;
+    window.localStorage.setItem('thothLang', lang);
+    this.setGoogleTranslateCookie(lang);
 
     const interval = setInterval(() => {
       const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
@@ -39,6 +49,16 @@ export class Navbar {
         clearInterval(interval);
       }
     }, 100);
+
+    window.setTimeout(() => {
+      window.location.reload();
+    }, 250);
+  }
+
+  private setGoogleTranslateCookie(lang: 'es' | 'en') {
+    const value = `/es/${lang}`;
+    document.cookie = `googtrans=${value}; path=/`;
+    document.cookie = `googtrans=${value}; domain=${window.location.hostname}; path=/`;
   }
 }
   

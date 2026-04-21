@@ -76,8 +76,8 @@
 
 @media (prefers-color-scheme: light) {
   .navbar-wrap {
-    background: rgba(255, 255, 255, 0.85);
-    border-bottom-color: rgba(0, 0, 0, 0.08);
+    background: rgba(233, 239, 249, 0.72);
+    border-bottom-color: rgba(120, 143, 188, 0.18);
   }
 
   .brand {
@@ -97,6 +97,39 @@
   }
 
   .nav-link-secondary:hover {
+    color: #0f172a;
+  }
+
+  .lang-current {
+    background: linear-gradient(135deg, #f8fbff 0%, #bfcef5 100%);
+    border-color: rgba(79, 70, 229, 0.55);
+    color: #312e81;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.65) inset,
+      0 8px 22px rgba(79, 70, 229, 0.24);
+  }
+
+  .lang-current:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #aebff0 100%);
+    color: #4c1d95;
+    border-color: rgba(124, 58, 237, 0.7);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.75) inset,
+      0 10px 26px rgba(79, 70, 229, 0.32);
+  }
+
+  .lang-menu {
+    background: rgba(232, 239, 249, 0.92);
+    border-color: rgba(120, 143, 188, 0.24);
+    box-shadow: 0 14px 32px rgba(50, 70, 110, 0.16);
+  }
+
+  .lang-menu div {
+    color: #334155;
+  }
+
+  .lang-menu div:hover {
+    background: rgba(214, 226, 244, 0.78);
     color: #0f172a;
   }
 }
@@ -122,14 +155,16 @@
 .lang-current {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  min-width: 48px;
   padding: 8px 12px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   color: #cbd5e1;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   cursor: pointer;
   transition: all 0.2s ease;
 }

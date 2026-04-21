@@ -1,4 +1,4 @@
-<header class="navbar-wrap"> 
+﻿<header class="navbar-wrap"> 
   <div class="container">
     <nav class="navbar">
 
@@ -8,35 +8,19 @@
       </div>
 
       <div class="menu">
-        <a href="#features">¿Que hacemos?</a>
+        <a href="#features">&iquest;Qu&eacute; hacemos?</a>
         <a href="#pruebas">Pruebas</a>
         <a href="#testimonios">Testimonios</a>
-        <a href="#contact">Contáctanos</a>
+        <a href="#contact">Cont&aacute;ctanos</a>
       </div>
 
       <!-- DERECHA -->
       <div class="nav-actions">
 
-        <!-- BOTONES IDIOMA -->
         <div class="lang-switch">
-          <div class="lang-dropdown">
-
-            <button class="lang-current" (click)="toggleLangMenu($event)">
-              🌐 Idioma
-            </button>
-
-            <div class="lang-menu" [class.active]="isLangOpen" (click)="$event.stopPropagation()">
-              <div (click)="changeLang('es')"><img src="https://flagcdn.com/16x12/es.png" alt="ES" style="margin-right: 8px;"> Español</div>
-              <div (click)="changeLang('en')"><img src="https://flagcdn.com/16x12/us.png" alt="US" style="margin-right: 8px;"> English</div>
-              <div (click)="changeLang('fr')"><img src="https://flagcdn.com/16x12/fr.png" alt="FR" style="margin-right: 8px;"> Français</div>
-              <div (click)="changeLang('de')"><img src="https://flagcdn.com/16x12/de.png" alt="DE" style="margin-right: 8px;"> Deutsch</div>
-              <div (click)="changeLang('pt')"><img src="https://flagcdn.com/16x12/pt.png" alt="PT" style="margin-right: 8px;"> Português</div>
-              <div (click)="changeLang('it')"><img src="https://flagcdn.com/16x12/it.png" alt="IT" style="margin-right: 8px;"> Italiano</div>
-              <div (click)="changeLang('zh-CN')"><img src="https://flagcdn.com/16x12/cn.png" alt="CN" style="margin-right: 8px;"> 中文</div>
-              <div (click)="changeLang('ja')"><img src="https://flagcdn.com/16x12/jp.png" alt="JP" style="margin-right: 8px;"> 日本語</div>
-            </div>
-
-          </div>
+          <button class="lang-current notranslate" type="button" translate="no" (click)="toggleLanguage()">
+            {{ languageButtonLabel }}
+          </button>
         </div>
 
         <a [href]="appUrl" class="nav-cta">Ingresa a la app</a>
