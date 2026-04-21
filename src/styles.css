@@ -150,6 +150,7 @@ button {
 
 .highlight {
   background: linear-gradient(135deg, #a78bfa, #60a5fa);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -178,3 +179,79 @@ button {
     font-size: 2rem;
   }
 }
+
+.lang-dropdown {
+  position: relative;
+}
+
+.lang-current {
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: #cbd5e1;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.lang-current:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* menú oculto */
+.lang-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #0d1728;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  display: none;
+  min-width: 160px;
+  overflow: hidden;
+}
+
+/* items */
+.lang-menu div {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.lang-menu div:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.lang-menu {
+  display: none;
+}
+
+.lang-menu.active {
+  display: block !important;
+}
+
+/* Hide Google Translate UI chrome while keeping programmatic translation. */
+body {
+  top: 0 !important;
+}
+
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-yAWNEb-L7lbkb,
+.skiptranslate > iframe {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+

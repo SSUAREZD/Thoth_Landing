@@ -1,4 +1,4 @@
-<section id="testimonials">
+<section id="pruebas">
   <div class="container">
     <h2 class="section-title">Nuestra App</h2>
 
@@ -7,30 +7,65 @@
       <div class="image-card">
         <div class="phone-frame">
 <div class="phone-screen">
-            <img src="thoth_home.jpeg" alt="Prueba Thoth 1">
+            <img src="sesion.jpg" alt="sesion">
           </div>
         </div>
-        <p>Captura de medición corporal desde el celular.</p>
+        <p>Tu cliente accede a su cuenta</p>
       </div>
 
       <div class="image-card">
         <div class="phone-frame">
 <div class="phone-screen">
-            <img src="measurements.jpeg" alt="Prueba Thoth 2">
+            <img src="catalogo_prod.jpg" alt="catalogo">
           </div>
         </div>
-        <p>Procesamiento de medidas para recomendación de talla.</p>
+        <p>El cleinte tiene acceso a todo el catalogo de la marca </p>
       </div>
 
       <div class="image-card">
         <div class="phone-frame">
 <div class="phone-screen">
-            <img src="logo.png" alt="Prueba Thoth 3">
+            <img src="medida.jpeg" alt="Medida">
           </div>
         </div>
-        <p>Resultado final con recomendación de talla.</p>
+        <p>El cliente registra las medidas de su pie para obtener la talla ideal.</p>
       </div>
 
+      <div class="image-card">
+        <div class="phone-frame">
+<div class="phone-screen">
+            <img src="recomendacion.jpg" alt="Recomendación">
+          </div>
+        </div>
+        <p>Se obtiene una recomendación de talla basada en las medidas de tu cliente y el del producto.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="testimonios">
+  <div class="container">
+    <h2 class="section-title">Testimonios</h2>
+
+    <div class="testimonials-slider">
+      <button class="slider-btn slider-btn-left" type="button" (click)="scrollLeft()" aria-label="Anterior testimonio">
+        ‹
+      </button>
+
+      <div class="testimonials-grid" #slider>
+        <article class="testimonial-card" *ngFor="let testimonial of testimonials">
+          <div class="rating">
+            <span class="star" *ngFor="let i of getRatingArray(testimonial.rating)">★</span>
+          </div>
+          <p class="quote">{{ testimonial.quote }}</p>
+          <p class="author">{{ testimonial.author }}</p>
+        </article>
+      </div>
+
+      <button class="slider-btn slider-btn-right" type="button" (click)="scrollRight()" aria-label="Siguiente testimonio">
+        ›
+      </button>
     </div>
   </div>
 </section>
