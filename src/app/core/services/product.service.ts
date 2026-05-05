@@ -7,7 +7,7 @@ import { ProductDTO, CreateProductRequest } from '../models/models';
 @Injectable({ providedIn: 'root' })
 export class ProductService {
   private http = inject(HttpClient);
-  private baseUrl = `${environment.apiUrl}/products`;
+  private get baseUrl() { return `${environment.getApiUrl()}/products`; }
 
   getAll(): Observable<ProductDTO[]> {
     return this.http.get<ProductDTO[]>(this.baseUrl);

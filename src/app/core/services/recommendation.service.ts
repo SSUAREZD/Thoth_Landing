@@ -7,7 +7,7 @@ import { SizeDTO } from '../models/models';
 @Injectable({ providedIn: 'root' })
 export class RecommendationService {
   private http = inject(HttpClient);
-  private baseUrl = `${environment.apiUrl}/recommendations`;
+  private get baseUrl() { return `${environment.getApiUrl()}/recommendations`; }
 
   /**
    * Returns the recommended size for a user-product pair.

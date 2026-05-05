@@ -7,7 +7,7 @@ import { PhoneDTO, CreatePhoneRequest } from '../models/models';
 @Injectable({ providedIn: 'root' })
 export class PhoneService {
   private http = inject(HttpClient);
-  private baseUrl = `${environment.apiUrl}/phones`;
+  private get baseUrl() { return `${environment.getApiUrl()}/phones`; }
 
   getAll(): Observable<PhoneDTO[]> {
     return this.http.get<PhoneDTO[]>(this.baseUrl);
