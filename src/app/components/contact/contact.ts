@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
+import { ContactsService } from '../../core/services/contacts.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,6 +10,8 @@ import emailjs from '@emailjs/browser';
   styleUrl: './contact.css',
 })
 export class Contact {
+  private contactsService = inject(ContactsService);
+
   name = '';
   email = '';
   message = '';
@@ -18,17 +21,22 @@ export class Contact {
   async onSubmit() {
     this.status.set('sending');
     try {
-      await emailjs.send(
-        'service_51aumaa',
-        'template_emxkk2h',
-        {
-          from_name: this.name,
-          from_email: this.email,
-          message: this.message,
-          time: new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }),
-        },
-        { publicKey: '_VgxKRRjnAUji_rRm' }
-      );
+      await this.contactsService.saveContact(this.name, this.email, this.message);
+
+      emailjs
+        .send(
+          'service_51aumaa',
+          'template_emxkk2h',
+          {
+            from_name: this.name,
+            from_email: this.email,
+            message: this.message,
+            time: new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }),
+          },
+          { publicKey: '_VgxKRRjnAUji_rRm' }
+        )
+        .catch(() => {});
+
       this.status.set('success');
       this.name = '';
       this.email = '';
