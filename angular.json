@@ -30,9 +30,6 @@
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
-            "security": {
-              "allowedHosts": ["localhost", "127.0.0.1", "192.168.2.193"]
-            },
             "ssr": {
               "entry": "src/server.ts"
             }
@@ -57,7 +54,7 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": true
             },
             "development": {
               "optimization": false,
@@ -72,7 +69,7 @@
           "options": {
             "host": "0.0.0.0",
             "port": 4200,
-            "allowedHosts": ["localhost", "127.0.0.1", "192.168.2.193"]
+            "allowedHosts": true
           },
           "configurations": {
             "production": {
