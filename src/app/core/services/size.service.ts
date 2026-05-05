@@ -7,7 +7,7 @@ import { SizeDTO } from '../models/models';
 @Injectable({ providedIn: 'root' })
 export class SizeService {
   private http = inject(HttpClient);
-  private baseUrl = `${environment.apiUrl}/sizes`;
+  private get baseUrl() { return `${environment.getApiUrl()}/sizes`; }
 
   getAll(): Observable<SizeDTO[]> {
     return this.http.get<SizeDTO[]>(this.baseUrl);

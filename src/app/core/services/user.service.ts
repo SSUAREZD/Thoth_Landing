@@ -7,7 +7,7 @@ import { UserDTO, PhoneDTO, MeasurementDTO, CreateUserRequest } from '../models/
 @Injectable({ providedIn: 'root' })
 export class UserService {
   private http = inject(HttpClient);
-  private baseUrl = `${environment.apiUrl}/users`;
+  private get baseUrl() { return `${environment.getApiUrl()}/users`; }
 
   getAll(): Observable<UserDTO[]> {
     return this.http.get<UserDTO[]>(this.baseUrl);

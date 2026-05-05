@@ -9,7 +9,9 @@ import { environment } from '../../../environments/environment';
   styleUrl: './navbar.css',
 })
 export class Navbar implements OnInit {
-  appUrl = environment.appUrl;
+  get appUrl() {
+    return environment.getAppUrl();
+  }
   currentLang: 'es' | 'en' = 'es';
 
   ngOnInit() {

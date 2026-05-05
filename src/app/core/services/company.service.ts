@@ -7,7 +7,10 @@ import { CompanyDTO } from '../models/models';
 @Injectable({ providedIn: 'root' })
 export class CompanyService {
   private http = inject(HttpClient);
-  private baseUrl = `${environment.apiUrl}/companies`;
+
+  private get baseUrl() {
+    return `${environment.getApiUrl()}/companies`;
+  }
 
   getAll(): Observable<CompanyDTO[]> {
     return this.http.get<CompanyDTO[]>(this.baseUrl);

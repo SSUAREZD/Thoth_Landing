@@ -7,7 +7,7 @@ import { MeasurementDTO, FeetMeasurementDTO } from '../models/models';
 @Injectable({ providedIn: 'root' })
 export class MeasurementService {
   private http = inject(HttpClient);
-  private baseUrl = `${environment.apiUrl}/measurements`;
+  private get baseUrl() { return `${environment.getApiUrl()}/measurements`; }
 
   getAll(): Observable<MeasurementDTO[]> {
     return this.http.get<MeasurementDTO[]>(this.baseUrl);

@@ -10,4 +10,16 @@ export const environment = {
     messagingSenderId: '179223669572',
     appId: '1:179223669572:web:0dbd89c7d531f6cd014511',
   },
+  getApiUrl: () => {
+    if (typeof window !== 'undefined') {
+      return `http://${window.location.hostname}:8080`;
+    }
+    return 'http://localhost:8080';
+  },
+  getAppUrl: () => {
+    if (typeof window !== 'undefined') {
+      return `http://${window.location.hostname}:4201`;
+    }
+    return 'http://localhost:4201';
+  }
 };
